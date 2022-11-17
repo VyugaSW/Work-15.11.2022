@@ -10,16 +10,26 @@ private:
 	double price = NULL;
 	int count = NULL;
 public:
+	Product(const char* name, double price, int count) {
+		strcpy_s(Product::name, 126, name);
+		Product::price = price;
+		Product::count = count;
+	}
 	//Заполнение информации по продукту
 	void fillProduct(const char* name, double price, int count) {
 		strcpy_s(Product::name,126, name);
 		Product::price = price;
 		Product::count = count;
 	}
+	//Меняем количество
+	void setCount(int count) {
+		Product::count = count;
+	}
 	//Вывод одного продукта
 	void PrintProduct() {
 		cout << setw(15) << name << "\t\t" << setw(14) << price << "\t\t" << setw(14) << count << endl;
 	}
+
 	//Те крохотные функцие, о коих вы нам сказывали
 	char* getName() {
 		return name;
